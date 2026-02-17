@@ -3,8 +3,6 @@
 A simple and lightweight URL shortener built with Python.  
 Turn long, messy URLs into clean and shareable short links in seconds.
 
-## 📦 Installation
-
 ## 📦 Installation (Using uv)
 
 This project uses [uv](https://github.com/astral-sh/uv) for fast Python dependency management.
@@ -35,3 +33,4 @@ uv pip install -r requirements.txt
 ```bash
 uv run main.py
 ```
+
