@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: rgb(171, 240, 254);
+      }
+      .selfhead {
+        font-size: 90px;
+        font-weight: bolder;
+        font-family: 'Baloo Chettan 2', cursive;
+      }
+      @media only screen and (max-width: 485px) {
+        .selfhead {
+          font-size: 50px;
+          font-weight: bold;
+        }
+      }
+    </style>
+    <title>Super fantastic URL Shortener</title>
+  </head>
+  <body>
+    <div class="max-w-3xl mx-auto px-4" id="Contact-us">
+      <div class="selfhead text-center py-0">Super fantastic URL Shortener that ever built</div>
+    </div>
+
+    <div class="max-w-2xl mx-auto my-6 px-4">
+      <form method="post" action="/index_form">
+        {% csrf_token %}
+        <div class="mb-4">
+          <label for="url" class="block text-sm font-semibold mb-2">Enter Long URL</label>
+          <input type="text" id="url" aria-describedby="emailHelp" placeholder="Enter your URL" name="long_url" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <p class="text-center">
+          <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Submit</button>
+        </p>
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@700&display=swap" rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			body {
+				background-color: rgb(171, 240, 254);
+			}
+			.selfhead {
+				font-size: 90px;
+				font-weight: bolder;
+				font-family: 'Baloo Chettan 2', cursive;
+			}
+			@media only screen and (max-width: 485px) {
+				.selfhead {
+					font-size: 50px;
+					font-weight: bold;
+				}
+			}
+		</style>
+		<title>Shortened URL</title>
+	</head>
+	<body>
+		<div class="max-w-3xl mx-auto px-4" id="Contact-us">
+			<div class="selfhead text-center py-0">URL shortener</div>
+		</div>
+
+		<div class="max-w-2xl mx-auto my-6 px-4">
+			<div class="bg-white p-6 rounded shadow">
+				<h2 class="text-xl font-semibold mb-4">Your shortened URL</h2>
+				<p class="break-words mb-4">
+					<a href="{{ shortened_url }}" class="text-blue-600 underline" target="_blank" rel="noopener noreferrer">{{ shortened_url }}</a>
+				</p>
+				<div class="flex items-center gap-3">
+					<button id="copyBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Copy</button>
+					<a href="/" class="text-gray-700 px-3 py-2 border border-gray-300 rounded hover:bg-gray-100">Create another</a>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			document.getElementById('copyBtn')?.addEventListener('click', function () {
+				const url = '{{ shortened_url }}';
+				if (!navigator.clipboard) {
+					const ta = document.createElement('textarea');
+					ta.value = url;
+					document.body.appendChild(ta);
+					ta.select();
+					document.execCommand('copy');
+					ta.remove();
+					return;
+				}
+				navigator.clipboard.writeText(url).then(() => {
+					this.textContent = 'Copied';
+					setTimeout(() => (this.textContent = 'Copy'), 1500);
+				});
+			});
+		</script>
+	</body>
+</html>
+
